@@ -5,7 +5,7 @@ export const List = styled.ul`
 `;
 
 export const ListItems = styled.li`
-  padding: 5px 25px;
+  padding: 5px;
   margin-bottom: 5px;
   display: flex;
   align-items: center;
