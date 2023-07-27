@@ -29,13 +29,13 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <Section title="Phonebook">
+      <Section title="Add your contacts">
         <ContactForm />
       </Section>
       {isLoading && !error && Loading.arrows()}
       {!isLoading && Loading.remove()}
       {usersQuantity > 0 && (
-        <Section title="Contacts">
+        <Section title="Your contacts">
           <Filter />
           <ContactList />
         </Section>
