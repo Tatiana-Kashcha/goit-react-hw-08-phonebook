@@ -8,7 +8,7 @@ export default function Register() {
       <Helmet>
         <title>Registration</title>
       </Helmet>
-      <Section title="Please registration">
+      <Section title="Please register">
         <RegisterForm />
       </Section>
     </div>
