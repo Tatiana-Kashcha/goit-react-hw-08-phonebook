@@ -31,6 +31,7 @@ const handleLogOutFulfilled = state => {
 };
 
 const handlePendingRefreshUser = state => {
+  state.error = null;
   state.isRefreshing = true;
 };
 
