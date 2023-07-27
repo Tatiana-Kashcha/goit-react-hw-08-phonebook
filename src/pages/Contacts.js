@@ -29,7 +29,7 @@ export default function Contacts() {
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <Section title="Add your contacts">
+      <Section title="Add new contact">
         <ContactForm />
       </Section>
       {isLoading && !error && Loading.arrows()}
