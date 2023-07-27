@@ -2,16 +2,30 @@ import { useDispatch } from 'react-redux';
 import * as s from './ContactListItems.styled';
 import PropTypes from 'prop-types';
 import { deleteContact } from 'redux/operations';
+import { useState } from 'react';
+import Modal from 'components/Modal/Modal';
 
 export const ContactListItems = ({ user: { name, number, id } }) => {
   const dispatch = useDispatch();
   const handleDelete = () => dispatch(deleteContact(id));
 
+  const [isShowModal, setIsShowModal] = useState(false);
+
+  const showModal = () => {
+    setIsShowModal(true);
+  };
+
+  const closeModal = () => {
+    setIsShowModal(false);
+  };
+
   return (
     <>
+      <s.ButtonEdit onClick={showModal}>Edit</s.ButtonEdit>
       <s.Name>{name}:</s.Name>
       <s.Number>{number}</s.Number>
-      <s.Button onClick={handleDelete}>Delete</s.Button>
+      <s.ButtonDel onClick={handleDelete}>Delete</s.ButtonDel>
+      {isShowModal && <Modal closeModal={closeModal}>{name}</Modal>}
     </>
   );
 };
