@@ -17,10 +17,12 @@ export const Modal = styled.div`
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
   background-color: #ffff;
+  border-radius: 4px;
 `;
 
 export const CloseButton = styled.button`
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding: 4px 8px;
   font-size: 14px;
   color: rgb(245 29 29);

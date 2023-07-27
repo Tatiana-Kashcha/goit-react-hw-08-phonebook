@@ -25,6 +25,7 @@ export default function Modal({ closeModal, children }) {
   return (
     <s.Overlay onClick={handleBackdropClick}>
       <s.Modal>
+        <h2>Edit contact</h2>
         {children}
         <s.CloseButton type="button" onClick={closeModal}>
           Cancel
