@@ -10,8 +10,8 @@ import {
   selectIsLoading,
 } from 'redux/selectors';
 import { fetchContacts } from 'redux/operations';
-import * as s from './Contacts.styled';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Section } from 'components/Section/Section';
 
 export default function Contacts() {
   const usersQuantity = useSelector(selectUsersQuantity);
@@ -25,21 +25,21 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <s.Container>
+    <>
       <Helmet>
         <title>Your contacts</title>
       </Helmet>
-      <h1>Phonebook</h1>
-      <ContactForm />
+      <Section title="Phonebook">
+        <ContactForm />
+      </Section>
       {isLoading && !error && Loading.arrows()}
       {!isLoading && Loading.remove()}
       {usersQuantity > 0 && (
-        <>
-          <h2>Contacts</h2>
+        <Section title="Contacts">
           <Filter />
           <ContactList />
-        </>
+        </Section>
       )}
-    </s.Container>
+    </>
   );
 }

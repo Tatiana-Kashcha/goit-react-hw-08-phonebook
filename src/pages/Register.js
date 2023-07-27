@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { Section } from 'components/Section/Section';
 
 export default function Register() {
   return (
@@ -7,7 +8,9 @@ export default function Register() {
       <Helmet>
         <title>Registration</title>
       </Helmet>
-      <RegisterForm />
+      <Section title="Please registration">
+        <RegisterForm />
+      </Section>
     </div>
   );
 }

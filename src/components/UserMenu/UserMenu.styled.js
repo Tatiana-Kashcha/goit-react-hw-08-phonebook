@@ -7,7 +7,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Greeting = styled.p`
-  font-weight: 700;
+  font-weight: bold;
+  font-size: 20px;
   span {
     color: rgb(12 80 206);
   }
