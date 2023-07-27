@@ -8,8 +8,8 @@ export const Description = styled.p`
 `;
 
 export const Input = styled.input`
-  width: 200px;
-  padding: 2px;
+  width: 550px;
+  padding: 4px;
   margin-top: 6px;
   border: 1px solid rgb(12 80 206);
   border-radius: 4px;

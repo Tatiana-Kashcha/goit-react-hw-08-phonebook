@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Form = styled.form`
   padding: 10px;
   margin-top: 20px;
-  border: 1px solid rgb(34 155 15);
+  border: 2px solid rgb(34 155 15);
   border-radius: 4px;
   button {
     padding: 4px 8px;
@@ -29,8 +29,8 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   input {
-    width: 200px;
-    padding: 2px;
+    width: 550px;
+    padding: 4px;
     margin-top: 6px;
     border: 1px solid rgb(34 155 15);
     border-radius: 4px;
