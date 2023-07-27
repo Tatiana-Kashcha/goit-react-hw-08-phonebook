@@ -6,5 +6,5 @@ export const Thumb = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 800px;
+  width: 600px;
 `;

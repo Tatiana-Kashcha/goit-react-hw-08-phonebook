@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  max-width: 800px;
+  max-width: 596px;
   padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid;
-  border-color: rgb(156 72 35);
+  border-right: 2px solid rgb(156 72 35);
+  border-bottom: 2px solid rgb(156 72 35);
+  border-left: 2px solid rgb(156 72 35);
 `;
 
 export const Container = styled.div`
