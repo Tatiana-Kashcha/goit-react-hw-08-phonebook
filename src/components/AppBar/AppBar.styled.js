@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Header = styled.header`
   padding: 20px 0px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: rgb(251 224 224);
   box-shadow: 0 8px 4px -5px rgba(0, 0, 0, 0.3);
 `;
