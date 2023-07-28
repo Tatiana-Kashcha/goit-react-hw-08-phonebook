@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import * as s from './Modal.styled';
 import PropTypes from 'prop-types';
 
-export default function Modal({ closeModal, children }) {
+export default function Modal({ title, closeModal, children }) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -25,17 +25,20 @@ export default function Modal({ closeModal, children }) {
   return (
     <s.Overlay onClick={handleBackdropClick}>
       <s.Modal>
-        <h2>Edit contact</h2>
+        {title && <s.Title>{title}</s.Title>}
         {children}
-        <s.CloseButton type="button" onClick={closeModal}>
-          Cancel
-        </s.CloseButton>
+        <s.ThumbButton>
+          <s.CloseButton type="button" onClick={closeModal}>
+            Cancel
+          </s.CloseButton>
+        </s.ThumbButton>
       </s.Modal>
     </s.Overlay>
   );
 }
 
 Modal.propTypes = {
+  title: PropTypes.string,
   closeModal: PropTypes.func.isRequired,
   children: PropTypes.any.isRequired,
 };

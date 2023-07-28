@@ -22,7 +22,6 @@ export const Modal = styled.div`
 `;
 
 export const CloseButton = styled.button`
-  margin-top: 20px;
   padding: 4px 8px;
   font-size: 14px;
   color: rgb(245 29 29);
@@ -37,4 +36,17 @@ export const CloseButton = styled.button`
     background-color: rgb(245 29 29);
     color: #ffffff;
   }
+`;
+
+export const Title = styled.h2`
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+`;
+
+export const ThumbButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 `;

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   padding: 10px;
-  margin-top: 20px;
   border: 2px solid rgb(34 155 15);
   border-radius: 4px;
   button {
