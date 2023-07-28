@@ -28,7 +28,7 @@ export const EditForm = ({ editName, editNumber, id, closeModal }) => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    dispatch(editContact({ name, number }, id));
+    dispatch(editContact(id, { name, number }));
     reset();
     closeModal();
   };
