@@ -62,7 +62,7 @@ export const EditForm = ({ editName, editNumber, id, closeModal }) => {
         />
       </s.Label>
 
-      <button type="submit">Add contact</button>
+      <button type="submit">Change</button>
     </s.Form>
   );
 };
