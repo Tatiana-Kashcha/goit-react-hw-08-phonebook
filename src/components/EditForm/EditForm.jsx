@@ -1,35 +1,68 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { editContact } from 'redux/operations';
 import * as s from './EditForm.styled';
 
 export const EditForm = ({ editName, editNumber, id, closeModal }) => {
+  const [name, setName] = useState(editName);
+  const [number, setNumber] = useState(editNumber);
   const dispatch = useDispatch();
+
+  const handleCange = evt => {
+    const { name, value } = evt.target;
+
+    switch (name) {
+      case 'name':
+        setName(value);
+        break;
+
+      case 'number':
+        setNumber(value);
+        break;
+
+      default:
+        break;
+    }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      editContact({
-        name: form.elements.name.value,
-        number: form.elements.number.value,
-        id,
-      })
-    );
-    form.reset();
+
+    dispatch(editContact(id, { name, number }));
+    reset();
     closeModal();
   };
 
+  const reset = () => {
+    setName('');
+    setNumber('');
+  };
+
   return (
-    <s.Form onSubmit={handleSubmit} autoComplete="off">
+    <s.Form onSubmit={handleSubmit}>
       <s.Label>
-        Name {editName}
-        <input type="text" name="name" required />
+        Name
+        <input
+          type="text"
+          name="name"
+          required
+          value={name}
+          onChange={handleCange}
+        />
       </s.Label>
+
       <s.Label>
-        Number {editNumber}
-        <input type="tel" name="number" required />
+        Number
+        <input
+          type="tel"
+          name="number"
+          required
+          value={number}
+          onChange={handleCange}
+        />
       </s.Label>
-      <button type="submit">Change</button>
+
+      <button type="submit">Add contact</button>
     </s.Form>
   );
 };
