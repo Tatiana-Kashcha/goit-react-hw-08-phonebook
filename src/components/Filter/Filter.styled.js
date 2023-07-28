@@ -7,7 +7,7 @@ export const Description = styled.p`
 `;
 
 export const Input = styled.input`
-  width: 550px;
+  max-width: 100%;
   padding: 4px;
   margin-top: 6px;
   border: 1px solid rgb(0 0 0);

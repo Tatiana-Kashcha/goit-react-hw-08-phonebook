@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { editContact } from 'redux/operations';
 import * as s from './EditForm.styled';
 
-export const EditForm = ({ editName, editNumber, id }) => {
+export const EditForm = ({ editName, editNumber, id, closeModal }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
@@ -16,6 +16,7 @@ export const EditForm = ({ editName, editNumber, id }) => {
       })
     );
     form.reset();
+    closeModal();
   };
 
   return (

@@ -28,7 +28,12 @@ export const ContactListItems = ({ user: { name, number, id } }) => {
       <s.ButtonDel onClick={handleDelete}>Delete</s.ButtonDel>
       {isShowModal && (
         <Modal closeModal={closeModal}>
-          <EditForm editName={name} editNumber={number} id={id} />
+          <EditForm
+            editName={name}
+            editNumber={number}
+            id={id}
+            closeModal={closeModal}
+          />
         </Modal>
       )}
     </>

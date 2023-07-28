@@ -29,7 +29,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   input {
-    width: 550px;
+    max-width: 550px;
     padding: 4px;
     margin-top: 6px;
     border: 1px solid rgb(12 80 206);
