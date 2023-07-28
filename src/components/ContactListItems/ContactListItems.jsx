@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { deleteContact } from 'redux/operations';
 import { useState } from 'react';
 import Modal from 'components/Modal/Modal';
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { EditForm } from 'components/EditForm/EditForm';
 
 export const ContactListItems = ({ user: { name, number, id } }) => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export const ContactListItems = ({ user: { name, number, id } }) => {
       <s.ButtonDel onClick={handleDelete}>Delete</s.ButtonDel>
       {isShowModal && (
         <Modal closeModal={closeModal}>
-          <RegisterForm />
+          <EditForm editName={name} editNumber={number} id={id} />
         </Modal>
       )}
     </>

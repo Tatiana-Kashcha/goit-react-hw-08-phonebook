@@ -1,5 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -34,6 +35,19 @@ export const deleteContact = createAsyncThunk(
       const response = await axios.delete(`/contacts/${contactId}`);
       return response.data;
     } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
+export const editContact = createAsyncThunk(
+  'contacts/editContact',
+  async (contactId, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/contacts/${contactId}`);
+      return response.data;
+    } catch (e) {
+      Notify.failure('Oops, something went wrong!');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
