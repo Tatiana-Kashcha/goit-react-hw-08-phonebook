@@ -19,6 +19,10 @@ export const Form = styled.form`
       background-color: rgb(34 155 15);
       color: #ffffff;
     }
+    &:disabled {
+      background-color: lightgray;
+      cursor: not-allowed;
+    }
   }
 `;
 

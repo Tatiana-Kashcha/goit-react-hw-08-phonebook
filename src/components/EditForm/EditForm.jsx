@@ -1,12 +1,16 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { editContact } from 'redux/operations';
+import { selectUsers } from 'redux/selectors';
 import * as s from './EditForm.styled';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const EditForm = ({ editName, editNumber, id, closeModal }) => {
   const [name, setName] = useState(editName);
   const [number, setNumber] = useState(editNumber);
+  const [buttonDisabled, setbuttonDisabled] = useState(true);
   const dispatch = useDispatch();
+  const users = useSelector(selectUsers);
 
   const handleCange = evt => {
     const { name, value } = evt.target;
@@ -23,10 +27,22 @@ export const EditForm = ({ editName, editNumber, id, closeModal }) => {
       default:
         break;
     }
+    if (name !== editName || number !== editNumber) {
+      setbuttonDisabled(false);
+    }
   };
+
+  const isDuplicateEditUser = users.some(
+    contact => contact.name.toLowerCase() === name.toLowerCase()
+  );
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (isDuplicateEditUser) {
+      Notify.failure('This name is already in the contacts list.');
+      return;
+    }
 
     dispatch(editContact({ name, number, id }));
     reset();
@@ -62,7 +78,9 @@ export const EditForm = ({ editName, editNumber, id, closeModal }) => {
         />
       </s.Label>
 
-      <button type="submit">Change</button>
+      <button disabled={buttonDisabled} type="submit">
+        Change
+      </button>
     </s.Form>
   );
 };
