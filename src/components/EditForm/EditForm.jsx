@@ -40,7 +40,7 @@ export const EditForm = ({ editName, editNumber, id, closeModal }) => {
     e.preventDefault();
 
     if (isDuplicateEditUser) {
-      Notify.failure('This name is already in the contacts list.');
+      Notify.failure('Such a name already exists! When changing the number, you must change the name!');
       return;
     }
 
