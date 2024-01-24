@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+// axios.defaults.baseURL = 'http://localhost:8000'; // не працює по 4 практиці node
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
