@@ -6,11 +6,12 @@ import * as s from './UserMenu.styled';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
+  console.log(user);
 
   return (
     <s.Wrapper>
       <s.Greeting>
-        Welcome, <span>{user.name}</span>
+        Welcome, <span>{user?.name}</span>
       </s.Greeting>
       <s.Button type="button" onClick={() => dispatch(logOut())}>
         Logout
