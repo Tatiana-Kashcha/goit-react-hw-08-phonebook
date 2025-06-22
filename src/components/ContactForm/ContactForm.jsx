@@ -3,6 +3,7 @@ import { useState } from 'react';
 import * as s from './ContactForm.styled';
 import { addContact } from 'redux/operations';
 import { selectUsers } from 'redux/selectors';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -28,19 +29,21 @@ export default function ContactForm() {
   };
 
   const isDuplicateUser = users.some(
-    contact => contact.name.toLowerCase() === name.toLowerCase()
+    // contact => contact.name.toLowerCase() === name.toLowerCase()
+    contact => contact.name === name
   );
 
   const handleSubmit = event => {
     event.preventDefault();
 
     if (isDuplicateUser) {
-      alert('This name is already in the contacts list.');
-      reset();
+      Notify.failure('This name already exists in your contact list!');
+      // reset(); очистка форми
       return;
     }
 
     dispatch(addContact({ name, number }));
+    Notify.success('Data added successfully!');
     reset();
   };
 
@@ -56,9 +59,9 @@ export default function ContactForm() {
         <input
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. 
-            For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          // pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          // title="Name may contain only letters, apostrophe, dash and spaces.
+          //   For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           value={name}
           onChange={handleCange}

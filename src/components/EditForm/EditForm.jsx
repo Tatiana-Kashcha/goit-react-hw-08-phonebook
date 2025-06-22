@@ -33,18 +33,21 @@ export const EditForm = ({ editName, editNumber, id, closeModal }) => {
   };
 
   const isDuplicateEditUser = users.some(
-    contact => contact.name.toLowerCase() === name.toLowerCase()
+    // унеможливлює зміну літери з малої на велику в тому ж самому імені
+    // contact => contact.name.toLowerCase() === name.toLowerCase()
+    contact => contact.name === name
   );
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (isDuplicateEditUser) {
-      Notify.failure('Such a name already exists! When changing the number, you must change the name!');
+    if (isDuplicateEditUser & (name !== editName)) {
+      Notify.failure('This name already exists in your contact list!');
       return;
     }
 
     dispatch(editContact({ name, number, id }));
+    Notify.success('Data updated successfully!');
     reset();
     closeModal();
   };
