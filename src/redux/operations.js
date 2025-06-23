@@ -2,8 +2,9 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-axios.defaults.baseURL = 'http://localhost:4000'; // працює по проекту nest
+// axios.defaults.baseURL = 'https://connections-api.herokuapp.com'; // було по дз
+// axios.defaults.baseURL = 'http://localhost:4000'; // працює по проекту nest локальному
+axios.defaults.baseURL = 'https://nestjs-my-rest-api.onrender.com'; // працює по проекту nest з Render-a
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
